@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Full Test Suite">
+<suite name="Full Test Suite"  parallel="false"  >
     <test name="All Tests">
         <classes>
             <class name="test_package.TS001SignInFunctionalityTests"/>
