@@ -13,7 +13,7 @@ public class DashboardPage {
     private final WebDriverWait wait;
     public DashboardPage(WebDriver driver){
         this.driver =driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
    private final By receiverTab = By.xpath("//span[text()='Receiver']");
    private final By profilee = By.xpath("//h4[@class='text-sm font-medium text-gray-800 truncate']");
@@ -24,23 +24,41 @@ public class DashboardPage {
 
 
     public void clickReceiver(){
-        driver.findElement(receiverTab).click();
+        WebElement element = wait.until(
+                ExpectedConditions.elementToBeClickable(receiverTab)
+        );
+       driver.findElement(receiverTab).click();
     }
     public void clickOnProfile(){
-        driver.findElement(profilee).click();
+        WebElement element = wait.until(
+                ExpectedConditions.elementToBeClickable(profilee)
+        );
+        element.click();
     }
     public void clickOnSettingsTab(){
-        driver.findElement(settingsTab).click();
+        WebElement element = wait.until(
+                ExpectedConditions.elementToBeClickable(settingsTab)
+        );
+        element.click();
     }
     public void clickConsignmentsDropdown(){
-        driver.findElement(consignmentsDropdown).click();
+        WebElement element = wait.until(
+                ExpectedConditions.elementToBeClickable(consignmentsDropdown)
+        );
+        element.click();
     }
     public void  clickViewConsignments(){
-        driver.findElement(viewConsignmentsTab).click();
+        WebElement element = wait.until(
+                ExpectedConditions.elementToBeClickable(viewConsignmentsTab)
+        );
+        element.click();
     }
 
     public void clickOnLogoutTab(){
-        driver.findElement(logoutTab).click();
+        WebElement element = wait.until(
+                ExpectedConditions.elementToBeClickable(logoutTab)
+        );
+        element.click();
     }
 
 
