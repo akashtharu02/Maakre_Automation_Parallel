@@ -3,8 +3,6 @@
     <test name="All Tests">
         <classes>
             <class name="test_package.TS001SignInFunctionalityTests"/>
-
-
         </classes>
     </test>
 </suite>

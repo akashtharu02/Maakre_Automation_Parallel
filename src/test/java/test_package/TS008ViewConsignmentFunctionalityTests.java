@@ -9,7 +9,7 @@ import pages_package.ViewConsignmetsPage;
 
 
 public class TS008ViewConsignmentFunctionalityTests extends Base {
-//TS008ViewConsignmentFunctionality
+
     @Test(priority = 1)
     public void TS008_TC003_Create_Consignment_Successfully_with_Valid_Info() throws InterruptedException {
 
