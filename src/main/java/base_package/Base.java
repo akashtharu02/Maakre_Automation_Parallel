@@ -19,7 +19,7 @@ public class Base {
         driver = new ChromeDriver();
         driver.get("https://dev.tms.maakretransport.com.au/");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
     }
 

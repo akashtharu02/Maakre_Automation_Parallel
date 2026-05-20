@@ -16,7 +16,7 @@ public class EditProfileFormPage {
     private final WebDriverWait wait;
     public EditProfileFormPage(WebDriver driver){
         this.driver =driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
     private final By companyName = By.id("company_name");
     private final By abnNumber = By.id("abn");

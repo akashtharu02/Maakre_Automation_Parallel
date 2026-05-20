@@ -8,18 +8,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class CustomerProfilePage {
+public class ViewConsignmentsPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
-    public CustomerProfilePage(WebDriver driver){
+    public ViewConsignmentsPage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
     }
-    private final By editProfileBtn = By.xpath("//button[text()='Edit Profile']");
-    public void clickEditProfile(){
+    private final By createNew = By.xpath("//span[text()=\"Create new\"]");
+
+    public void clickCreateNew(){
         WebElement element = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(editProfileBtn)
+                ExpectedConditions.visibilityOfElementLocated(createNew)
         );
-        element.click();
+        driver.findElement(createNew).click();
     }
 }

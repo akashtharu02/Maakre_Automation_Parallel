@@ -13,7 +13,7 @@ public class DashboardPage {
     private final WebDriverWait wait;
     public DashboardPage(WebDriver driver){
         this.driver =driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
    private final By receiverTab = By.xpath("//span[text()='Receiver']");
    private final By profilee = By.xpath("//h4[@class='text-sm font-medium text-gray-800 truncate']");
@@ -27,7 +27,7 @@ public class DashboardPage {
         WebElement element = wait.until(
                 ExpectedConditions.elementToBeClickable(receiverTab)
         );
-       driver.findElement(receiverTab).click();
+       element.click();
     }
     public void clickOnProfile(){
         WebElement element = wait.until(

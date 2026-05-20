@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import pages_package.ConsignmentFormPage;
 import pages_package.DashboardPage;
 import pages_package.Toast_URL_Page;
-import pages_package.ViewConsignmetsPage;
+import pages_package.ViewConsignmentsPage;
 
 
 public class TS008ViewConsignmentFunctionalityTests extends Base {
@@ -14,7 +14,7 @@ public class TS008ViewConsignmentFunctionalityTests extends Base {
     public void TS008_TC003_Create_Consignment_Successfully_with_Valid_Info() throws InterruptedException {
 
         DashboardPage dashboard = new DashboardPage(driver);
-        ViewConsignmetsPage consignmentListing = new ViewConsignmetsPage(driver);
+        ViewConsignmentsPage consignmentListing = new ViewConsignmentsPage(driver);
         ConsignmentFormPage consignmentForm = new ConsignmentFormPage(driver);
         Toast_URL_Page popup = new Toast_URL_Page(driver);
 

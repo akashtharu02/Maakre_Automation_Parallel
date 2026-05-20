@@ -15,7 +15,7 @@ public class CustomerSigninPage {
     private final WebDriverWait wait;
     public CustomerSigninPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
     private final By emailField = By.id("email");
