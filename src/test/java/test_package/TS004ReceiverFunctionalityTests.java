@@ -145,7 +145,7 @@ public class TS004ReceiverFunctionalityTests extends Base {
         ReceiversListingPage receiverListing = new ReceiversListingPage(driver);
 
         receiverListing.enterCompanyNameKeywords("Java Tech");
-        Thread.sleep(900);
+        Thread.sleep(2000);
 
         List<String> companyResults = receiverListing.getDisplayedReceiverRows();
         System.out.println("result By company Name:" + companyResults);
@@ -157,7 +157,7 @@ public class TS004ReceiverFunctionalityTests extends Base {
 
         receiverListing.clearSearchField();
         receiverListing.enterReceiverNameKeywords("Elon Musk");
-        Thread.sleep(900);
+        Thread.sleep(2000);
 
         List<String> receiverResults = receiverListing.getDisplayedReceiverRows();
         System.out.println("result by Receiver Name:"+receiverResults);

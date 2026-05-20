@@ -64,14 +64,4 @@ public class ReceiversListingPage {
   }
 
 
-
-//    public List<String> getDisplayedReceiverRows(String expectedText) {
-//        wait.until(ExpectedConditions.presenceOfElementLocated(
-//                By.xpath("//tbody/tr/td/div[contains(text(),'" + expectedText + "')]")));
-//        return driver.findElements(tableRows)
-//                .stream()
-//                .map(WebElement::getText)
-//                .collect(Collectors.toList());
-//    }
-
 }
