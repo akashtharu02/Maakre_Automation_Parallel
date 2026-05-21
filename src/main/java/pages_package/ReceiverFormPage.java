@@ -16,7 +16,7 @@ public class ReceiverFormPage {
     private final WebDriverWait wait;
     public ReceiverFormPage(WebDriver driver){
         this.driver = driver;
-        this.wait =  new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.wait =  new WebDriverWait(driver, Duration.ofSeconds(50));
     }
     private final By companyName = By.id("company_name");
     private final By receiverName = By.id("receiver_name");

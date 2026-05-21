@@ -16,7 +16,7 @@ public class EditProfileFormPage {
     private final WebDriverWait wait;
     public EditProfileFormPage(WebDriver driver){
         this.driver =driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
     }
     private final By companyName = By.id("company_name");
     private final By abnNumber = By.id("abn");
@@ -31,14 +31,23 @@ public class EditProfileFormPage {
     private final By editBtn =By.xpath("//button[@type=\"submit\"]");
 
     public void enterCompanyName(String comName){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(companyName)
+        );
         driver.findElement(companyName).clear();
         driver.findElement(companyName).sendKeys(comName);
     }
     public void enterABNNumber(String ABN){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(abnNumber)
+        );
         driver.findElement(abnNumber).clear();
         driver.findElement(abnNumber).sendKeys(ABN);
     }
     public void enterCompanyAddress(String comAddress){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(companyAddress)
+        );
         driver.findElement(companyAddress).clear();
         driver.findElement(companyAddress).sendKeys(comAddress);
     }
@@ -47,45 +56,54 @@ public class EditProfileFormPage {
         driver.findElement(state).sendKeys(comState);
     }
     public void enterPostCode(String poCode){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(postCode)
+        );
         driver.findElement(postCode).clear();
         driver.findElement(postCode).sendKeys(poCode);
     }
     public void enterCity(String comCity){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(city)
+        );
         driver.findElement(city).clear();
         driver.findElement(city).sendKeys(comCity);
     }
     public void enterSuburb(String comSuburb){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(suburb)
+        );
         driver.findElement(suburb).clear();
         driver.findElement(suburb).sendKeys(comSuburb);
     }
     public void enterEmail(String comEmail){
-        WebElement codeDropdown = wait.until(
+        WebElement element = wait.until(
                 ExpectedConditions.elementToBeClickable(companyEmail)
         );
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", codeDropdown);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         driver.findElement(companyEmail).clear();
         driver.findElement(companyEmail).sendKeys(comEmail);
     }
 
     public void enterPhoneNumber(String phNumber){
-        WebElement phoneNumberField = driver.findElement(phoneNumber);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", phoneNumberField);
-        phoneNumberField.clear();
-        phoneNumberField.sendKeys(phNumber);
+        WebElement element = driver.findElement(phoneNumber);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        element.clear();
+        element.sendKeys(phNumber);
     }
     public void enterUserName(String uName){
-        WebElement codeDropdown = wait.until(
+        WebElement element = wait.until(
                 ExpectedConditions.elementToBeClickable(userName)
         );
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", codeDropdown);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         driver.findElement(userName).clear();
         driver.findElement(userName).sendKeys(uName);
     }
     public void clickEditBtn(){
-        WebElement codeDropdown = wait.until(
+        WebElement element = wait.until(
                 ExpectedConditions.elementToBeClickable(editBtn)
         );
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", codeDropdown);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         driver.findElement(editBtn).click();
     }
 

@@ -9,26 +9,26 @@ import pages_package.Toast_URL_Page;
 public class TS001SignInFunctionalityTests extends Base {
 
     @Test(priority = 1)
-    public static void TS001_TC002_Valid_Email_and_Password_with_Password_Masked() throws InterruptedException {
+    public static void TS001_TC002_Valid_Email_and_Password_with_Password_Masked() {
         CustomerSigninPage signIn = new CustomerSigninPage(driver);
         Toast_URL_Page popup = new Toast_URL_Page(driver);
 
         signIn.enterEmail("example@customer.com");
         signIn.enterPassword("pass@123");
         signIn.clickOnSignInButton();
-        String actualMessage = popup.getSuccessMessage();
-        // Assert
+
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Logged in successfully",
-                "Successfully signed in message is not displayed 2"
+                "Successfully signed in message is not displayed"
         );
-        Thread.sleep(1000);
-        Assert.assertTrue(popup.getPageUrl().contains("/dashboard"), "User is not" +
-                " redirected to the dashboard URL with password unmasked");
+        Assert.assertTrue(
+                popup.getPageUrl().contains("/dashboard"),
+                "User is not redirected to the dashboard"
+        );
     }
     @Test(priority = 2)
-    public void TS001_TC003_SigIn_Using_Enter_Button() throws InterruptedException {
+    public void TS001_TC003_SigIn_Using_Enter_Button() {
         CustomerSigninPage signIn = new CustomerSigninPage(driver);
         Toast_URL_Page popup = new Toast_URL_Page(driver);
 
@@ -37,21 +37,20 @@ public class TS001SignInFunctionalityTests extends Base {
         signIn.enterPassword("pass@123");
         signIn.pressEnterKey();
 
-        String actualMessage = popup.getSuccessMessage();
-        // Assert
+
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Logged in successfully",
                 "Successfully signed in message is not displayed 1"
         );
-        Thread.sleep(1000);
+
         Assert.assertTrue(popup.getPageUrl().contains("/dashboard"), "User is not redirected to " +
                 "the dashboard URL with password unmasked");
 
     }
 
-    @Test(priority = 2)
-    public void TS001_TC004_Valid_Email_and_Password_with_Password_unMasked() throws InterruptedException {
+    @Test(priority = 3)
+    public void TS001_TC004_Valid_Email_and_Password_with_Password_unMasked() {
         CustomerSigninPage signIn = new CustomerSigninPage(driver);
         Toast_URL_Page popup = new Toast_URL_Page(driver);
 
@@ -60,14 +59,12 @@ public class TS001SignInFunctionalityTests extends Base {
         signIn.enterPassword("pass@123");
         signIn.clickOnSignInButton();
 
-        String actualMessage = popup.getSuccessMessage();
-        // Assert
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Logged in successfully",
                 "Successfully signed in message is not displayed 1"
         );
-        Thread.sleep(1000);
+
         Assert.assertTrue(popup.getPageUrl().contains("/dashboard"), "User is not redirected to " +
                 "the dashboard URL with password unmasked");
 

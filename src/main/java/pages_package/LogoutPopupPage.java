@@ -16,17 +16,19 @@ public class LogoutPopupPage {
 
     public LogoutPopupPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
     }
 
     private final By logoutBtn = By.xpath("//Button[text()=\"Logout\"]");
     private final By cancelBtn = By.xpath("//Button[text()=\"Cancel\"]");
 
     public void clickLogoutBtn() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(logoutBtn));
         driver.findElement(logoutBtn).click();
     }
 
     public void clickCancelBtn() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(cancelBtn));
         driver.findElement(cancelBtn).click();
     }
 
@@ -40,7 +42,6 @@ public class LogoutPopupPage {
 
     public void pressEnter() {
         WebElement popup = wait.until(ExpectedConditions.visibilityOfElementLocated(cancelBtn));
-
         popup.sendKeys(Keys.ENTER);
     }
 

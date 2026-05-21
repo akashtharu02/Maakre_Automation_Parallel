@@ -1,13 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Full Test Suite">
+<suite name="Full Test Suite" >
     <test name="All Tests">
         <classes>
             <class name="test_package.TS001SignInFunctionalityTests"/>
             <class name="test_package.TS004ReceiverFunctionalityTests"/>
             <class name="test_package.TSOO6EditProfileFunctionalityTests"/>
-            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>
+
             <class name="test_package.TS015SettingFunctionalityTests"/>
             <class name="test_package.TS018LogoutFunctionalityTests"/>
+
+            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>
         </classes>
     </test>
 </suite>

@@ -16,7 +16,7 @@ public class TS004ReceiverFunctionalityTests extends Base {
 
 
     @BeforeMethod
-    public void preprocess() throws InterruptedException {
+    public void preprocess()  {
         DashboardPage dashboard = new DashboardPage(driver);
         TS001SignInFunctionalityTests.TS001_TC002_Valid_Email_and_Password_with_Password_Masked();
         dashboard.clickReceiver();
@@ -43,9 +43,9 @@ public class TS004ReceiverFunctionalityTests extends Base {
         addReceiver.enterPhoneNumber("+61-986551157");
         addReceiver.clickSubmitBtn();
 
-        String actualMessage = popup.getSuccessMessage();
+
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Receiver information created successfully",
                 "Unable to create a new receiver. A record with this email, " +
                         "phone, or reference number may already exist."
@@ -72,9 +72,8 @@ public class TS004ReceiverFunctionalityTests extends Base {
         addReceiver.enterPhoneNumber("+61-981627345");
         addReceiver.clickSubmitBtn();
 
-        String actualMessage = popup.getSuccessMessage();
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Receiver information created successfully",
                 "Unable to create a new receiver. A record with this ABN," +
                         " email, phone, or reference number may already exist."
@@ -102,9 +101,9 @@ public class TS004ReceiverFunctionalityTests extends Base {
         updateReceiver.enterPhoneNumber("+61-983385779");
         updateReceiver.clickSubmitBtn();
 
-        String actualMessage = popup.getSuccessMessage();
+
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Receiver Update successful",
                 "Unable to update receiver profiles"
         );
@@ -131,41 +130,43 @@ public class TS004ReceiverFunctionalityTests extends Base {
         updateReceiver.clickSubmitBtn();
         updateReceiver.clickSubmitBtn();
 
-        String actualMessage = popup.getSuccessMessage();
+
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Receiver Update successful",
                 "Unable to update receiver profiles"
         );
     }
 
 
-    @Test(priority = 5)
-    public void TS004_TC003_Search_Receiver_By_their_Name_and_Company_Name() throws InterruptedException {
+    @Test(priority = 6)
+    public void TS004_TC003_Search_Receiver_By_their_Name_and_Company_Namee() {
         ReceiversListingPage receiverListing = new ReceiversListingPage(driver);
 
+        // Search by company name
         receiverListing.enterCompanyNameKeywords("Java Tech");
-        Thread.sleep(2000);
+        receiverListing.waitForSearchResults("Java Tech");
 
         List<String> companyResults = receiverListing.getDisplayedReceiverRows();
-        System.out.println("result By company Name:" + companyResults);
-
+        System.out.println("Result By company Name:" + companyResults);
         Assert.assertFalse(companyResults.isEmpty(), "No results displayed for company search.");
-        Assert.assertTrue(companyResults.stream().anyMatch(row ->row.contains("Java Tech")),
-                "Expected 'Java Tech' not found in search results.");
+        Assert.assertTrue(
+                companyResults.stream().anyMatch(row -> row.contains("Java Tech")),
+                "Expected 'Java Tech' not found in search results."
+        );
 
-
+        // Search by receiver name
         receiverListing.clearSearchField();
         receiverListing.enterReceiverNameKeywords("Elon Musk");
-        Thread.sleep(2000);
+        receiverListing.waitForSearchResults("Elon Musk");
 
         List<String> receiverResults = receiverListing.getDisplayedReceiverRows();
-        System.out.println("result by Receiver Name:"+receiverResults);
-
+        System.out.println("Result by Receiver Name:" + receiverResults);
         Assert.assertFalse(receiverResults.isEmpty(), "No results displayed for name search.");
-        Assert.assertTrue(receiverResults.stream().anyMatch(row -> row.contains("Elon Mus")),
-                "Expected 'Elon Musk' not found in search results.");
-
+        Assert.assertTrue(
+                receiverResults.stream().anyMatch(row -> row.contains("Elon Musk")),
+                "Expected 'Elon Musk' not found in search results."
+        );
     }
 
 }

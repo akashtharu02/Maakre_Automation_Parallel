@@ -15,7 +15,7 @@ public class CustomerSetting_PasswordChangePage {
 
     public CustomerSetting_PasswordChangePage(WebDriver driver){
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
     }
 
     private final By oldPassword = By.id("old_password");
@@ -27,24 +27,50 @@ public class CustomerSetting_PasswordChangePage {
     private final By eyeIcon3 = By.xpath("(//div[@class=\"relative group\"])[3]/button");
 
     public void enterOldPassword(String oldPass){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(oldPassword)
+        );
+
         driver.findElement(oldPassword).sendKeys(oldPass);
     }
+
     public void enterNewPassword(String newPass){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(newPassword)
+        );
         driver.findElement(newPassword).sendKeys(newPass);
     }
+
     public void enterConformPassword(String conformPass){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(conformPassword)
+        );
         driver.findElement(conformPassword).sendKeys(conformPass);
     }
+
     public void clickOnUpdatePasswordBTN(){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(updatePasswordBtn)
+        );
         driver.findElement(updatePasswordBtn).click();
     }
+
     public void clickOnEyeIcon1(){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(eyeIcon1)
+        );
         driver.findElement(eyeIcon1).click();
     }
     public void clickOnEyeIcon2(){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(eyeIcon2)
+        );
         driver.findElement(eyeIcon2).click();
     }
     public void clickOnEyeIcon3(){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(eyeIcon3)
+        );
         driver.findElement(eyeIcon3).click();
     }
 

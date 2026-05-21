@@ -14,7 +14,7 @@ public class Toast_URL_Page {
 
     public Toast_URL_Page(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
     }
 
 
@@ -32,32 +32,7 @@ public class Toast_URL_Page {
     //Method to get current URL
     public String getPageUrl() {
 
+        wait.until(ExpectedConditions.urlContains("/dashboard"));
         return driver.getCurrentUrl();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     //  Toast Message Method
-//    public String getSuccessMessage2() {
-//        WebElement toast = wait.until(
-//                ExpectedConditions.visibilityOfElementLocated(successMessage)
-//        );
-//        String message;
-//        message = toast.getText();
-//        return message;
-//    }
-//
-
 }

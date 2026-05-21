@@ -1,6 +1,7 @@
 package test_package;
 import base_package.Base;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages_package.ConsignmentFormPage;
 import pages_package.DashboardPage;
@@ -10,15 +11,21 @@ import pages_package.ViewConsignmentsPage;
 
 public class TS008ViewConsignmentFunctionalityTests extends Base {
 
+    @BeforeMethod
+    public void preprocess()  {
+        TS001SignInFunctionalityTests.TS001_TC002_Valid_Email_and_Password_with_Password_Masked();
+
+    }
+
     @Test(priority = 1)
-    public void TS008_TC003_Create_Consignment_Successfully_with_Valid_Info() throws InterruptedException {
+    public void TS008_TC003_Create_Consignment_Successfully_with_Valid_Info() {
 
         DashboardPage dashboard = new DashboardPage(driver);
         ViewConsignmentsPage consignmentListing = new ViewConsignmentsPage(driver);
         ConsignmentFormPage consignmentForm = new ConsignmentFormPage(driver);
         Toast_URL_Page popup = new Toast_URL_Page(driver);
 
-        TS001SignInFunctionalityTests.TS001_TC002_Valid_Email_and_Password_with_Password_Masked();
+        dashboard.waitForDashboardToLoad();
         dashboard.clickConsignmentsDropdown();
         dashboard.clickViewConsignments();
         consignmentListing.clickCreateNew();
@@ -43,9 +50,9 @@ public class TS008ViewConsignmentFunctionalityTests extends Base {
         consignmentForm.enterPackageWeight("20");
         consignmentForm.clickCreatePackageBtn();
 
-        String actualMessage = popup.getSuccessMessage();
+
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Consignment created successfully",
                 "Unable to create consignment"
         );

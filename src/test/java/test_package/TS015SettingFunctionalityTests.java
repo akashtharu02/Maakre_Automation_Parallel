@@ -11,7 +11,7 @@ import pages_package.Toast_URL_Page;
 public class TS015SettingFunctionalityTests extends Base {
 
     @BeforeMethod
-    public void preprocess() throws InterruptedException {
+    public void preprocess()  {
         DashboardPage dashboard = new DashboardPage(driver);
         TS001SignInFunctionalityTests.TS001_TC002_Valid_Email_and_Password_with_Password_Masked();
         dashboard.clickOnSettingsTab();
@@ -40,7 +40,7 @@ public class TS015SettingFunctionalityTests extends Base {
     }
 
     @Test(priority=1)
-    public void TS015_Update_Password_with_unMasked_Data() throws InterruptedException {
+    public void TS015_Update_Password_with_unMasked_Data() {
         DashboardPage dashboard = new DashboardPage(driver);
         Toast_URL_Page popup = new Toast_URL_Page(driver);
         CustomerSetting_PasswordChangePage setting = new CustomerSetting_PasswordChangePage(driver);
@@ -56,10 +56,10 @@ public class TS015SettingFunctionalityTests extends Base {
         setting.clickOnUpdatePasswordBTN();
 
         //  Capture Toast Message immediately
-        String actualMessage = popup.getSuccessMessage();
+
         // Assert
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Password changed successfully.",
                 "Success message did not match after password change!"
         );

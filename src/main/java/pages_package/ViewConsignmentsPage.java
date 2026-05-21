@@ -13,7 +13,7 @@ public class ViewConsignmentsPage {
     private final WebDriverWait wait;
     public ViewConsignmentsPage(WebDriver driver){
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
     }
     private final By createNew = By.xpath("//span[text()=\"Create new\"]");

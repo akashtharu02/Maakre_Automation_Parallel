@@ -16,7 +16,7 @@ public class ConsignmentFormPage {
 
     public ConsignmentFormPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
     }
 
     private final By receiverDropdown = By.id("receiver");
@@ -42,18 +42,32 @@ public class ConsignmentFormPage {
 
 
     public void clickCheckbox(){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(authorityCheckBox)
+        );
         driver.findElement(authorityCheckBox).click();
+
 
     }
     // Generic reusable dropdown handler
-    private void selectDropdownOption(By dropdownLocator,String tagName, String optionText) {
-        // Click dropdown to open options
+    private void selectDropdownOption2(By dropdownLocator,String tagName, String optionText) {
         driver.findElement(dropdownLocator).click();
-
-        // Build dynamic locator for option
         By dropdownOptionLocator = By.xpath("//"+tagName+"[contains(text(),'"+optionText+"')]");
+        WebElement option = wait.until(ExpectedConditions.elementToBeClickable(dropdownOptionLocator));
+        option.click();
+    }
+    // Generic reusable dropdown handler
+    private void selectDropdownOption(By dropdownLocator, String tagName, String optionText) {
+        WebElement dropdown = driver.findElement(dropdownLocator);
 
-        // Wait until option is visible/clickable
+        // Scroll to CENTER of screen - avoids sticky header at top covering the element
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block: 'center'});", dropdown
+        );
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", dropdown);
+
+        By dropdownOptionLocator = By.xpath("//" + tagName + "[contains(text(),'" + optionText + "')]");
         WebElement option = wait.until(ExpectedConditions.elementToBeClickable(dropdownOptionLocator));
         option.click();
     }

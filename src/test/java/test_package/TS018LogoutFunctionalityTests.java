@@ -12,7 +12,7 @@ import pages_package.Toast_URL_Page;
 public class TS018LogoutFunctionalityTests extends Base {
 
     @BeforeMethod
-    public void before() throws InterruptedException {
+    public void before() {
         TS001SignInFunctionalityTests.TS001_TC002_Valid_Email_and_Password_with_Password_Masked();
 
 
@@ -26,9 +26,9 @@ public class TS018LogoutFunctionalityTests extends Base {
 
         dashboard.clickOnLogoutTab();
         logout.clickLogoutBtn();
-        String actualMessage = popup.getSuccessMessage();
+
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Logged out successfully",
                 "Unable to create consignment"
         );
@@ -46,7 +46,7 @@ public class TS018LogoutFunctionalityTests extends Base {
 
 
     @Test(priority = 3)
-    public void TS018_TC004_1_Logout_Confirmation_Popup_Cancel_and_Logout_Using_Tab_and_Enter_Buttons() throws InterruptedException {
+    public void TS018_TC004_1_Logout_Confirmation_Popup_Cancel_and_Logout_Using_Tab_and_Enter_Buttons()  {
         DashboardPage dashboard = new DashboardPage(driver);
         LogoutPopupPage logout = new LogoutPopupPage(driver);
         Toast_URL_Page popup = new Toast_URL_Page(driver);
@@ -57,10 +57,8 @@ public class TS018LogoutFunctionalityTests extends Base {
         logout.pressTab_then_enter();
 
 
-        String actualMessage = popup.getSuccessMessage();
-
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Logged out successfully",
                 "Unable to create consignment"
         );

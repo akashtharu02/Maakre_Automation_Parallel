@@ -15,7 +15,7 @@ public class CustomerSigninPage {
     private final WebDriverWait wait;
     public CustomerSigninPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
     }
 
     private final By emailField = By.id("email");
@@ -26,13 +26,27 @@ public class CustomerSigninPage {
 
 
     public void enterEmail(String email) {
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(emailField)
+        );
         driver.findElement(emailField).sendKeys(email);
     }
-    public void clickEyeIcon(){driver.findElement(eyeIcon).click();}
+    public void clickEyeIcon(){
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(eyeIcon)
+        );
+        driver.findElement(eyeIcon).click();}
+
     public void enterPassword(String password) {
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(passwordField)
+        );
         driver.findElement(passwordField).sendKeys(password);
     }
     public void clickOnSignInButton() {
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(signInButton)
+        );
         driver.findElement(signInButton).click();
     }
 

@@ -4,15 +4,12 @@ import base_package.Base;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages_package.CustomerProfilePage;
-import pages_package.DashboardPage;
-import pages_package.EditProfileFormPage;
-import pages_package.Toast_URL_Page;
+import pages_package.*;
 
 public class TSOO6EditProfileFunctionalityTests extends Base {
 
     @BeforeMethod
-    public void before() throws InterruptedException {
+    public void before(){
         DashboardPage dashboard = new DashboardPage(driver);
         TS001SignInFunctionalityTests.TS001_TC002_Valid_Email_and_Password_with_Password_Masked();
         dashboard.clickOnProfile();
@@ -38,9 +35,9 @@ public class TSOO6EditProfileFunctionalityTests extends Base {
 
         editProfile.clickEditBtn();
 
-        String actualMessage = popup.getSuccessMessage();
+
         Assert.assertEquals(
-                actualMessage,
+                popup.getSuccessMessage(),
                 "Customer updated successfully",
                 "Unable update profile,ABN number invalid "
         );
