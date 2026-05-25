@@ -1,18 +1,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="CrossBrowserSuite">
 
-    <test name="ChromeTest">
-        <parameter name="browser" value="chrome"/>
-          <classes>
-              <class name="test_package.TS001SignInFunctionalityTests"/>
-              <class name="test_package.TS004ReceiverFunctionalityTests"/>
-              <class name="test_package.TSOO6EditProfileFunctionalityTests"/>
-              <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>
-              <class name="test_package.TS015SettingFunctionalityTests"/>
-              <class name="test_package.TS018LogoutFunctionalityTests"/>
+<!--    <test name="ChromeTest">-->
+<!--        <parameter name="browser" value="chrome"/>-->
+<!--          <classes>-->
+<!--              <class name="test_package.TS001SignInFunctionalityTests"/>-->
+<!--              <class name="test_package.TS004ReceiverFunctionalityTests"/>-->
+<!--              <class name="test_package.TSOO6EditProfileFunctionalityTests"/>-->
+<!--              <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>-->
+<!--              <class name="test_package.TS015SettingFunctionalityTests"/>-->
+<!--              <class name="test_package.TS018LogoutFunctionalityTests"/>-->
 
-          </classes>
-    </test>
+<!--          </classes>-->
+<!--    </test>-->
 
 <!--    <test name="FirefoxTest">-->
 <!--        <parameter name="browser" value="firefox"/>-->
@@ -27,16 +27,16 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-<!--    <test name="EdgeTest">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="test_package.TS001SignInFunctionalityTests"/>-->
-<!--            <class name="test_package.TS004ReceiverFunctionalityTests"/>-->
-<!--            <class name="test_package.TSOO6EditProfileFunctionalityTests"/>-->
-<!--            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>-->
-<!--            <class name="test_package.TS015SettingFunctionalityTests"/>-->
-<!--            <class name="test_package.TS018LogoutFunctionalityTests"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="EdgeTest">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="test_package.TS001SignInFunctionalityTests"/>
+            <class name="test_package.TS004ReceiverFunctionalityTests"/>
+            <class name="test_package.TSOO6EditProfileFunctionalityTests"/>
+            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>
+            <class name="test_package.TS015SettingFunctionalityTests"/>
+            <class name="test_package.TS018LogoutFunctionalityTests"/>
+        </classes>
+    </test>
 
 </suite>
