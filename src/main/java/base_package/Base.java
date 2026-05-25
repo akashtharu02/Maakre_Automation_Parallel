@@ -56,28 +56,28 @@ public class Base {
 //                chromeOptions.addArguments("--disable-gpu");
 //                chromeOptions.addArguments("--remote-allow-origins=*");
 //                return new ChromeDriver(chromeOptions);
-//
-//            case "firefox":
-//                FirefoxOptions firefoxOptions = new FirefoxOptions();
-//                firefoxOptions.addArguments("--headless");
-//                firefoxOptions.addArguments("--no-sandbox");
-//                firefoxOptions.addArguments("--disable-dev-shm-usage");
-//                firefoxOptions.addArguments("--width=1920");
-//                firefoxOptions.addArguments("--height=1080");
-//                return new FirefoxDriver(firefoxOptions);
 
-            case "edge":
-                EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--headless");
-                edgeOptions.addArguments("--no-sandbox");
-                edgeOptions.addArguments("--disable-dev-shm-usage");
-                edgeOptions.addArguments("--disable-gpu");
-                edgeOptions.addArguments("--window-size=1920,1080");
-                edgeOptions.addArguments("--user-data-dir=C:\\Windows\\Temp\\edge-jenkins-profile");
-                edgeOptions.addArguments("--disable-extensions");
-                edgeOptions.addArguments("--disable-software-rasterizer");
-                edgeOptions.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
-                return new EdgeDriver(edgeOptions);
+            case "firefox":
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--headless");
+                firefoxOptions.addArguments("--no-sandbox");
+                firefoxOptions.addArguments("--disable-dev-shm-usage");
+                firefoxOptions.addArguments("--width=1920");
+                firefoxOptions.addArguments("--height=1080");
+                return new FirefoxDriver(firefoxOptions);
+
+//            case "edge":
+//                EdgeOptions edgeOptions = new EdgeOptions();
+//                edgeOptions.addArguments("--headless");
+//                edgeOptions.addArguments("--no-sandbox");
+//                edgeOptions.addArguments("--disable-dev-shm-usage");
+//                edgeOptions.addArguments("--disable-gpu");
+//                edgeOptions.addArguments("--window-size=1920,1080");
+//                edgeOptions.addArguments("--user-data-dir=C:\\Windows\\Temp\\edge-jenkins-profile");
+//                edgeOptions.addArguments("--disable-extensions");
+//                edgeOptions.addArguments("--disable-software-rasterizer");
+//                edgeOptions.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
+//                return new EdgeDriver(edgeOptions);
 
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + browser);
