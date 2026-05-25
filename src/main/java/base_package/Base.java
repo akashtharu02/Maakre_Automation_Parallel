@@ -48,23 +48,23 @@ public class Base {
     private WebDriver createDriver(String browser) {
         switch (browser.toLowerCase()) {
 
-//            case "chrome":
-//                ChromeOptions chromeOptions = new ChromeOptions();
-//                chromeOptions.addArguments("--headless");
-//                chromeOptions.addArguments("--no-sandbox");
-//                chromeOptions.addArguments("--disable-dev-shm-usage");
-//                chromeOptions.addArguments("--disable-gpu");
-//                chromeOptions.addArguments("--remote-allow-origins=*");
-//                return new ChromeDriver(chromeOptions);
-//
-//            case "firefox":
-//                FirefoxOptions firefoxOptions = new FirefoxOptions();
-//                firefoxOptions.addArguments("--headless");
-//                firefoxOptions.addArguments("--no-sandbox");
-//                firefoxOptions.addArguments("--disable-dev-shm-usage");
-//                firefoxOptions.addArguments("--width=1920");
-//                firefoxOptions.addArguments("--height=1080");
-//                return new FirefoxDriver(firefoxOptions);
+            case "chrome":
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
+                chromeOptions.addArguments("--disable-gpu");
+                chromeOptions.addArguments("--remote-allow-origins=*");
+                return new ChromeDriver(chromeOptions);
+
+            case "firefox":
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--headless");
+                firefoxOptions.addArguments("--no-sandbox");
+                firefoxOptions.addArguments("--disable-dev-shm-usage");
+                firefoxOptions.addArguments("--width=1920");
+                firefoxOptions.addArguments("--height=1080");
+                return new FirefoxDriver(firefoxOptions);
 
             case "edge":
                 EdgeOptions edgeOptions = new EdgeOptions();
@@ -73,7 +73,7 @@ public class Base {
                 edgeOptions.addArguments("--disable-dev-shm-usage");
                 edgeOptions.addArguments("--disable-gpu");
                 edgeOptions.addArguments("--window-size=1920,1080");
-                edgeOptions.setBinary("C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe");
+                edgeOptions.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
                 return new EdgeDriver(edgeOptions);
 
             default:
