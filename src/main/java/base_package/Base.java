@@ -68,12 +68,14 @@ public class Base {
 
             case "edge":
                 EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--headless");
+                edgeOptions.addArguments("--headless=new");
                 edgeOptions.addArguments("--no-sandbox");
                 edgeOptions.addArguments("--disable-dev-shm-usage");
                 edgeOptions.addArguments("--disable-gpu");
                 edgeOptions.addArguments("--window-size=1920,1080");
-                edgeOptions.addArguments("--user-data-dir=C:\\Windows\\Temp\\edge-jenkins-profile");
+                edgeOptions.addArguments("--remote-debugging-port=0");
+                edgeOptions.addArguments("--user-data-dir=C:\\ProgramData\\Jenkins\\.jenkins\\edge-profile-"
+                        + System.currentTimeMillis());
                 edgeOptions.addArguments("--disable-extensions");
                 edgeOptions.addArguments("--disable-software-rasterizer");
                 edgeOptions.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
