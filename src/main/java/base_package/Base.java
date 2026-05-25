@@ -14,7 +14,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 import java.time.Duration;
-//
+
 //public class Base {
 //    protected static WebDriver driver;
 //
@@ -28,8 +28,7 @@ import java.time.Duration;
 //
 //        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 //
-////        driver.manage().window().maximize();
-////        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//
 //
 //    }
 
@@ -59,6 +58,7 @@ public class Base {
 
             case "firefox":
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--headless");
                 firefoxOptions.addArguments("--no-sandbox");
                 firefoxOptions.addArguments("--disable-dev-shm-usage");
                 firefoxOptions.addArguments("--width=1920");
@@ -67,6 +67,7 @@ public class Base {
 
             case "edge":
                 EdgeOptions edgeOptions = new EdgeOptions();
+                edgeOptions.addArguments("--headless");
                 edgeOptions.addArguments("--no-sandbox");
                 edgeOptions.addArguments("--disable-dev-shm-usage");
                 edgeOptions.addArguments("--disable-gpu");
