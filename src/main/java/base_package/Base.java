@@ -68,14 +68,18 @@ public class Base {
 
             case "edge":
                 EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--headless");
+                edgeOptions.addArguments("--headless=new");
                 edgeOptions.addArguments("--no-sandbox");
                 edgeOptions.addArguments("--disable-dev-shm-usage");
                 edgeOptions.addArguments("--disable-gpu");
                 edgeOptions.addArguments("--window-size=1920,1080");
-                edgeOptions.addArguments("--user-data-dir=C:\\Windows\\Temp\\edge-jenkins-profile");
+                edgeOptions.addArguments("--remote-allow-origins=*");
                 edgeOptions.addArguments("--disable-extensions");
-                edgeOptions.addArguments("--disable-software-rasterizer");
+                edgeOptions.addArguments("--disable-background-networking");
+                edgeOptions.addArguments("--disable-default-apps");
+                edgeOptions.addArguments("--no-first-run");
+                edgeOptions.addArguments("--user-data-dir=C:\\Windows\\Temp\\edge-profile-"
+                        + Thread.currentThread().getId());
                 edgeOptions.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
                 return new EdgeDriver(edgeOptions);
 
