@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="CrossBrowserSuite">
+<suite name="CrossBrowserSuite"  parallel="tests" thread-count="3">
 
     <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
@@ -23,6 +23,7 @@
             <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>
             <class name="test_package.TS015SettingFunctionalityTests"/>
             <class name="test_package.TS018LogoutFunctionalityTests"/>
+
         </classes>
     </test>
 

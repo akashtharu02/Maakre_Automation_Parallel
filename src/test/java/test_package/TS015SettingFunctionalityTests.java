@@ -12,15 +12,15 @@ public class TS015SettingFunctionalityTests extends Base {
 
     @BeforeMethod
     public void preprocess()  {
-        DashboardPage dashboard = new DashboardPage(driver);
-        TS001SignInFunctionalityTests.TS001_TC002_Valid_Email_and_Password_with_Password_Masked();
+        DashboardPage dashboard = new DashboardPage(getDriver());
+        new LoginHelper(getDriver()).login();
         dashboard.clickOnSettingsTab();
     }
     @Test(priority=1)
     public void TS015_Update_Password_with_Masked_Data() {
-        DashboardPage dashboard = new DashboardPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
-        CustomerSetting_PasswordChangePage setting = new CustomerSetting_PasswordChangePage(driver);
+        DashboardPage dashboard = new DashboardPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
+        CustomerSetting_PasswordChangePage setting = new CustomerSetting_PasswordChangePage(getDriver());
 
         dashboard.clickOnSettingsTab();
         setting.enterOldPassword("pass@123");
@@ -36,14 +36,14 @@ public class TS015SettingFunctionalityTests extends Base {
                 "Password changed successfully.",
                 "Success message did not match after password change!"
         );
-        Assert.assertTrue(driver.getPageSource().contains("Password changed success"),"unable to change password");
+        Assert.assertTrue(getDriver().getPageSource().contains("Password changed success"),"unable to change password");
     }
 
     @Test(priority=1)
     public void TS015_Update_Password_with_unMasked_Data() {
-        DashboardPage dashboard = new DashboardPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
-        CustomerSetting_PasswordChangePage setting = new CustomerSetting_PasswordChangePage(driver);
+        DashboardPage dashboard = new DashboardPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
+        CustomerSetting_PasswordChangePage setting = new CustomerSetting_PasswordChangePage(getDriver());
 
 
         dashboard.clickOnSettingsTab();
@@ -63,7 +63,7 @@ public class TS015SettingFunctionalityTests extends Base {
                 "Password changed successfully.",
                 "Success message did not match after password change!"
         );
-        Assert.assertTrue(driver.getPageSource().contains("Password changed success"),"unable to change password");
+        Assert.assertTrue(getDriver().getPageSource().contains("Password changed success"),"unable to change password");
 
     }
 

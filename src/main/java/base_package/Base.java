@@ -34,15 +34,19 @@ import java.time.Duration;
 
 
 public class Base {
-    protected static WebDriver driver;
+    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
+    protected WebDriver getDriver() {
+        return driver.get();
+    }
 
     @BeforeMethod
     @Parameters("browser")
     public void setUp(String browser) {
-        driver = createDriver(browser);
-        driver.manage().window().setSize(new Dimension(1920, 1080));
-        driver.get("https://dev.tms.maakretransport.com.au/");
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+        driver.set(createDriver(browser));
+        getDriver().manage().window().setSize(new Dimension(1920, 1080));
+        getDriver().get("https://dev.tms.maakretransport.com.au/");
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
     }
 
     private WebDriver createDriver(String browser) {
@@ -55,16 +59,11 @@ public class Base {
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--disable-gpu");
                 chromeOptions.addArguments("--remote-allow-origins=*");
+                chromeOptions.addArguments("--window-size=1920,1080");
+                chromeOptions.addArguments("--force-device-scale-factor=1");
                 return new ChromeDriver(chromeOptions);
 
-            case "firefox":
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--headless");
-                firefoxOptions.addArguments("--no-sandbox");
-                firefoxOptions.addArguments("--disable-dev-shm-usage");
-                firefoxOptions.addArguments("--width=1920");
-                firefoxOptions.addArguments("--height=1080");
-                return new FirefoxDriver(firefoxOptions);
+
 
             case "edge":
                 System.setProperty("webdriver.edge.driver", "C:\\Windows\\System32\\msedgedriver.exe");
@@ -74,6 +73,7 @@ public class Base {
                 edgeOptions.addArguments("--disable-dev-shm-usage");
                 edgeOptions.addArguments("--disable-gpu");
                 edgeOptions.addArguments("--window-size=1920,1080");
+                edgeOptions.addArguments("--force-device-scale-factor=1");
                 edgeOptions.addArguments("--remote-debugging-port=0");
                 edgeOptions.addArguments("--disable-extensions");
                 edgeOptions.addArguments("--disable-software-rasterizer");
@@ -85,6 +85,14 @@ public class Base {
                 edgeOptions.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
                 return new EdgeDriver(edgeOptions);
 
+
+            case "firefox":
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--headless");
+                firefoxOptions.addArguments("--window-size=1920,1080");
+                firefoxOptions.addPreference("layout.css.devPixelsPerPx", "1.0");
+                return new FirefoxDriver(firefoxOptions);
+
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
@@ -92,8 +100,8 @@ public class Base {
 
     @AfterMethod
     public void tearDown()  {
-
-            driver.quit();
+        getDriver().quit();
+        driver.remove();
 
     }
 }

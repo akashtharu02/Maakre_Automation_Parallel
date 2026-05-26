@@ -9,9 +9,9 @@ import pages_package.Toast_URL_Page;
 public class TS001SignInFunctionalityTests extends Base {
 
     @Test(priority = 1)
-    public static void TS001_TC002_Valid_Email_and_Password_with_Password_Masked() {
-        CustomerSigninPage signIn = new CustomerSigninPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
+    public void TS001_TC002_Valid_Email_and_Password_with_Password_Masked() {
+        CustomerSigninPage signIn = new CustomerSigninPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
 
         signIn.enterEmail("example@customer.com");
         signIn.enterPassword("pass@123");
@@ -29,8 +29,8 @@ public class TS001SignInFunctionalityTests extends Base {
     }
     @Test(priority = 2)
     public void TS001_TC003_SigIn_Using_Enter_Button() {
-        CustomerSigninPage signIn = new CustomerSigninPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
+        CustomerSigninPage signIn = new CustomerSigninPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
 
         signIn.clickEyeIcon();
         signIn.enterEmail("example@customer.com");
@@ -51,8 +51,8 @@ public class TS001SignInFunctionalityTests extends Base {
 
     @Test(priority = 3)
     public void TS001_TC004_Valid_Email_and_Password_with_Password_unMasked() {
-        CustomerSigninPage signIn = new CustomerSigninPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
+        CustomerSigninPage signIn = new CustomerSigninPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
 
         signIn.clickEyeIcon();
         signIn.enterEmail("example@customer.com");

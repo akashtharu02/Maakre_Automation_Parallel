@@ -21,16 +21,16 @@ public class TS004ReceiverFunctionalityTests extends Base {
 
     @BeforeMethod
     public void preprocess()  {
-        DashboardPage dashboard = new DashboardPage(driver);
-        TS001SignInFunctionalityTests.TS001_TC002_Valid_Email_and_Password_with_Password_Masked();
+        DashboardPage dashboard = new DashboardPage(getDriver());
+        new LoginHelper(getDriver()).login();
         dashboard.clickReceiver();
     }
 
     @Test(priority = 1)
     public void TS004_TC001_1_Adding_Receiver_When_Form_Contains_Valid_Data_Without_ABN() {
-        ReceiversListingPage receiverListing = new ReceiversListingPage(driver);
-        ReceiverFormPage addReceiver = new ReceiverFormPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
+        ReceiversListingPage receiverListing = new ReceiversListingPage(getDriver());
+        ReceiverFormPage addReceiver = new ReceiverFormPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
 
 
         receiverListing.clickAddReceiverBtn();
@@ -58,9 +58,9 @@ public class TS004ReceiverFunctionalityTests extends Base {
 
     @Test(priority = 2)
     public void TS004_TC001_2_Adding_Receiver_When_Form_Contains_Valid_Data_With_ABN() {
-        ReceiversListingPage receiverListing = new ReceiversListingPage(driver);
-        ReceiverFormPage addReceiver = new ReceiverFormPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
+        ReceiversListingPage receiverListing = new ReceiversListingPage(getDriver());
+        ReceiverFormPage addReceiver = new ReceiverFormPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
 
         receiverListing.clickAddReceiverBtn();
         addReceiver.enterCompanyName("Java Tech PVT. LTD.");
@@ -87,9 +87,9 @@ public class TS004ReceiverFunctionalityTests extends Base {
 
     @Test(priority = 3)
     public void TS004_TC002_1_Update_Receiver_Form_with_Valid_Data_with_ABN() {
-        ReceiversListingPage receiverListing = new ReceiversListingPage(driver);
-        ReceiverFormPage updateReceiver = new ReceiverFormPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
+        ReceiversListingPage receiverListing = new ReceiversListingPage(getDriver());
+        ReceiverFormPage updateReceiver = new ReceiverFormPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
 
         receiverListing.clickEditIconButton();
         updateReceiver.enterCompanyName("Java Tech PVT. LTD.");
@@ -115,9 +115,9 @@ public class TS004ReceiverFunctionalityTests extends Base {
 
     @Test(priority = 4)
     public void TS004_TC002_2_Update_Receiver_Form_with_Valid_Data_Without_ABN() {
-        ReceiversListingPage receiverListing = new ReceiversListingPage(driver);
-        ReceiverFormPage updateReceiver = new ReceiverFormPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
+        ReceiversListingPage receiverListing = new ReceiversListingPage(getDriver());
+        ReceiverFormPage updateReceiver = new ReceiverFormPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
 
         receiverListing.clickEditIconButton();
         updateReceiver.enterCompanyName("Java Tech PVT. LTD.");
@@ -145,7 +145,7 @@ public class TS004ReceiverFunctionalityTests extends Base {
 
     @Test(priority = 6)
     public void TS004_TC003_Search_Receiver_By_their_Name_and_Company_Namee() {
-        ReceiversListingPage receiverListing = new ReceiversListingPage(driver);
+        ReceiversListingPage receiverListing = new ReceiversListingPage(getDriver());
 
         // Search by company name
         receiverListing.enterCompanyNameKeywords("Java Tech");

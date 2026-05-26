@@ -10,16 +10,16 @@ public class TSOO6EditProfileFunctionalityTests extends Base {
 
     @BeforeMethod
     public void before(){
-        DashboardPage dashboard = new DashboardPage(driver);
-        TS001SignInFunctionalityTests.TS001_TC002_Valid_Email_and_Password_with_Password_Masked();
+        DashboardPage dashboard = new DashboardPage(getDriver());
+        new LoginHelper(getDriver()).login();
         dashboard.clickOnProfile();
     }
 
     @Test(priority = 1)
     public void TS003_TC001_Edit_Customer_Profile_With_Valid_Data() {
-        CustomerProfilePage profile = new CustomerProfilePage(driver);
-        EditProfileFormPage editProfile = new EditProfileFormPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
+        CustomerProfilePage profile = new CustomerProfilePage(getDriver());
+        EditProfileFormPage editProfile = new EditProfileFormPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
 
         profile.clickEditProfile();
         editProfile.enterCompanyName("Crave Solution Pvt. Ltd.");
