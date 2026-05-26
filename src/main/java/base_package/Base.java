@@ -63,12 +63,6 @@ public class Base {
                 chromeOptions.addArguments("--force-device-scale-factor=1");
                 return new ChromeDriver(chromeOptions);
 
-            case "firefox":
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--headless");
-                firefoxOptions.addArguments("--window-size=1920,1080");
-                firefoxOptions.addPreference("layout.css.devPixelsPerPx", "1.0");
-                return new FirefoxDriver(firefoxOptions);
 
             case "edge":
                 System.setProperty("webdriver.edge.driver", "C:\\Windows\\System32\\msedgedriver.exe");
@@ -89,6 +83,14 @@ public class Base {
                         + System.currentTimeMillis());
                 edgeOptions.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
                 return new EdgeDriver(edgeOptions);
+
+
+            case "firefox":
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--headless");
+                firefoxOptions.addArguments("--window-size=1920,1080");
+                firefoxOptions.addPreference("layout.css.devPixelsPerPx", "1.0");
+                return new FirefoxDriver(firefoxOptions);
 
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + browser);
