@@ -34,7 +34,7 @@ import java.time.Duration;
 
 
 public class Base {
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     protected WebDriver getDriver() {
         return driver.get();
@@ -54,30 +54,31 @@ public class Base {
 
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless");
+//                chromeOptions.addArguments("--headless");
                 chromeOptions.addArguments("--no-sandbox");
-                chromeOptions.addArguments("--disable-dev-shm-usage");cd b
+                chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--disable-gpu");
                 chromeOptions.addArguments("--remote-allow-origins=*");
+                chromeOptions.addArguments("--window-size=1920,1080");
+                chromeOptions.addArguments("--force-device-scale-factor=1");
                 return new ChromeDriver(chromeOptions);
 
             case "firefox":
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--headless");
-                firefoxOptions.addArguments("--no-sandbox");
-                firefoxOptions.addArguments("--disable-dev-shm-usage");
-                firefoxOptions.addArguments("--width=1920");
-                firefoxOptions.addArguments("--height=1080");
+//                firefoxOptions.addArguments("--headless");
+                firefoxOptions.addArguments("--window-size=1920,1080");
+                firefoxOptions.addPreference("layout.css.devPixelsPerPx", "1.0");
                 return new FirefoxDriver(firefoxOptions);
 
             case "edge":
                 System.setProperty("webdriver.edge.driver", "C:\\Windows\\System32\\msedgedriver.exe");
                 EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--headless=new");
+//                edgeOptions.addArguments("--headless=new");
                 edgeOptions.addArguments("--no-sandbox");
                 edgeOptions.addArguments("--disable-dev-shm-usage");
                 edgeOptions.addArguments("--disable-gpu");
                 edgeOptions.addArguments("--window-size=1920,1080");
+                edgeOptions.addArguments("--force-device-scale-factor=1");
                 edgeOptions.addArguments("--remote-debugging-port=0");
                 edgeOptions.addArguments("--disable-extensions");
                 edgeOptions.addArguments("--disable-software-rasterizer");
@@ -96,7 +97,6 @@ public class Base {
 
     @AfterMethod
     public void tearDown()  {
-
         getDriver().quit();
         driver.remove();
 
