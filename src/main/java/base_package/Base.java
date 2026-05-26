@@ -54,7 +54,7 @@ public class Base {
 
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-//                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("--headless");
                 chromeOptions.addArguments("--no-sandbox");
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--disable-gpu");
@@ -65,7 +65,7 @@ public class Base {
 
             case "firefox":
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-//                firefoxOptions.addArguments("--headless");
+                firefoxOptions.addArguments("--headless");
                 firefoxOptions.addArguments("--window-size=1920,1080");
                 firefoxOptions.addPreference("layout.css.devPixelsPerPx", "1.0");
                 return new FirefoxDriver(firefoxOptions);
@@ -73,7 +73,7 @@ public class Base {
             case "edge":
                 System.setProperty("webdriver.edge.driver", "C:\\Windows\\System32\\msedgedriver.exe");
                 EdgeOptions edgeOptions = new EdgeOptions();
-//                edgeOptions.addArguments("--headless=new");
+                edgeOptions.addArguments("--headless=new");
                 edgeOptions.addArguments("--no-sandbox");
                 edgeOptions.addArguments("--disable-dev-shm-usage");
                 edgeOptions.addArguments("--disable-gpu");
