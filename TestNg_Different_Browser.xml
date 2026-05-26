@@ -6,35 +6,35 @@
           <classes>
               <class name="test_package.TS001SignInFunctionalityTests"/>
               <class name="test_package.TS004ReceiverFunctionalityTests"/>
-<!--              <class name="test_package.TSOO6EditProfileFunctionalityTests"/>-->
-<!--              <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>-->
-<!--              <class name="test_package.TS015SettingFunctionalityTests"/>-->
-<!--              <class name="test_package.TS018LogoutFunctionalityTests"/>-->
+              <class name="test_package.TSOO6EditProfileFunctionalityTests"/>
+              <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>
+              <class name="test_package.TS015SettingFunctionalityTests"/>
+              <class name="test_package.TS018LogoutFunctionalityTests"/>
 
           </classes>
     </test>
 
-<!--    <test name="FirefoxTest">-->
-<!--        <parameter name="browser" value="firefox"/>-->
-<!--        <classes>-->
-<!--            <class name="test_package.TS001SignInFunctionalityTests"/>-->
-<!--            <class name="test_package.TS004ReceiverFunctionalityTests"/>-->
-<!--&lt;!&ndash;            <class name="test_package.TSOO6EditProfileFunctionalityTests"/>&ndash;&gt;-->
-<!--&lt;!&ndash;            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>&ndash;&gt;-->
-<!--&lt;!&ndash;            <class name="test_package.TS015SettingFunctionalityTests"/>&ndash;&gt;-->
-<!--&lt;!&ndash;            <class name="test_package.TS018LogoutFunctionalityTests"/>&ndash;&gt;-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="test_package.TS001SignInFunctionalityTests"/>
+            <class name="test_package.TS004ReceiverFunctionalityTests"/>
+            <class name="test_package.TSOO6EditProfileFunctionalityTests"/>
+            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>
+            <class name="test_package.TS015SettingFunctionalityTests"/>
+            <class name="test_package.TS018LogoutFunctionalityTests"/>
+        </classes>
+    </test>
 
     <test name="EdgeTest">
         <parameter name="browser" value="edge"/>
         <classes>
             <class name="test_package.TS001SignInFunctionalityTests"/>
             <class name="test_package.TS004ReceiverFunctionalityTests"/>
-<!--            <class name="test_package.TSOO6EditProfileFunctionalityTests"/>-->
-<!--            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>-->
-<!--            <class name="test_package.TS015SettingFunctionalityTests"/>-->
-<!--            <class name="test_package.TS018LogoutFunctionalityTests"/>-->
+            <class name="test_package.TSOO6EditProfileFunctionalityTests"/>
+            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>
+            <class name="test_package.TS015SettingFunctionalityTests"/>
+            <class name="test_package.TS018LogoutFunctionalityTests"/>
         </classes>
     </test>
 

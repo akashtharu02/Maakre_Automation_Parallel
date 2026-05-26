@@ -57,14 +57,14 @@ public class Base {
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 return new ChromeDriver(chromeOptions);
 
-//            case "firefox":
-//                FirefoxOptions firefoxOptions = new FirefoxOptions();
-//                firefoxOptions.addArguments("--headless");
-//                firefoxOptions.addArguments("--no-sandbox");
-//                firefoxOptions.addArguments("--disable-dev-shm-usage");
-//                firefoxOptions.addArguments("--width=1920");
-//                firefoxOptions.addArguments("--height=1080");
-//                return new FirefoxDriver(firefoxOptions);
+            case "firefox":
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--headless");
+                firefoxOptions.addArguments("--no-sandbox");
+                firefoxOptions.addArguments("--disable-dev-shm-usage");
+                firefoxOptions.addArguments("--width=1920");
+                firefoxOptions.addArguments("--height=1080");
+                return new FirefoxDriver(firefoxOptions);
 
             case "edge":
                 System.setProperty("webdriver.edge.driver", "C:\\Windows\\System32\\msedgedriver.exe");
