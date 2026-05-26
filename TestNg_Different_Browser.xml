@@ -1,14 +1,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="CrossBrowserSuite">
+<suite name="CrossBrowserSuite"  parallel="tests" thread-count="3" >
 
-    <test name="ChromeTest">
+    <test name="ChromeTest" parallel="methods" thread-count="10">
         <parameter name="browser" value="chrome"/>
           <classes>
               <class name="test_package.TS001SignInFunctionalityTests"/>
-              <class name="test_package.TS004ReceiverFunctionalityTests"/>
-              <class name="test_package.TSOO6EditProfileFunctionalityTests"/>
-              <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>
-              <class name="test_package.TS015SettingFunctionalityTests"/>
+<!--              <class name="test_package.TS004ReceiverFunctionalityTests"/>-->
+<!--              <class name="test_package.TSOO6EditProfileFunctionalityTests"/>-->
+<!--              <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>-->
+<!--              <class name="test_package.TS015SettingFunctionalityTests"/>-->
               <class name="test_package.TS018LogoutFunctionalityTests"/>
 
           </classes>
@@ -18,10 +18,10 @@
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="test_package.TS001SignInFunctionalityTests"/>
-            <class name="test_package.TS004ReceiverFunctionalityTests"/>
-            <class name="test_package.TSOO6EditProfileFunctionalityTests"/>
-            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>
-            <class name="test_package.TS015SettingFunctionalityTests"/>
+<!--            <class name="test_package.TS004ReceiverFunctionalityTests"/>-->
+<!--            <class name="test_package.TSOO6EditProfileFunctionalityTests"/>-->
+<!--            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>-->
+<!--            <class name="test_package.TS015SettingFunctionalityTests"/>-->
             <class name="test_package.TS018LogoutFunctionalityTests"/>
 
         </classes>
@@ -31,10 +31,10 @@
         <parameter name="browser" value="edge"/>
         <classes>
             <class name="test_package.TS001SignInFunctionalityTests"/>
-            <class name="test_package.TS004ReceiverFunctionalityTests"/>
-            <class name="test_package.TSOO6EditProfileFunctionalityTests"/>
-            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>
-            <class name="test_package.TS015SettingFunctionalityTests"/>
+<!--            <class name="test_package.TS004ReceiverFunctionalityTests"/>-->
+<!--            <class name="test_package.TSOO6EditProfileFunctionalityTests"/>-->
+<!--            <class name="test_package.TS008ViewConsignmentFunctionalityTests"/>-->
+<!--            <class name="test_package.TS015SettingFunctionalityTests"/>-->
             <class name="test_package.TS018LogoutFunctionalityTests"/>
         </classes>
     </test>

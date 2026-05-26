@@ -13,16 +13,16 @@ public class TS018LogoutFunctionalityTests extends Base {
 
     @BeforeMethod
     public void before() {
-        TS001SignInFunctionalityTests.TS001_TC002_Valid_Email_and_Password_with_Password_Masked();
+        new LoginHelper(getDriver()).login();
 
 
     }
 
     @Test(priority = 1)
     public void TS018_TC004_1_Logout_Functionality() {
-        DashboardPage dashboard = new DashboardPage(driver);
-        LogoutPopupPage logout = new LogoutPopupPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
+        DashboardPage dashboard = new DashboardPage(getDriver());
+        LogoutPopupPage logout = new LogoutPopupPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
 
         dashboard.clickOnLogoutTab();
         logout.clickLogoutBtn();
@@ -36,8 +36,8 @@ public class TS018LogoutFunctionalityTests extends Base {
 
     @Test(priority = 2)
     public void TS018_TC003_Logout_Confirmation_Popup_Cancel_Button_Functionality() {
-        DashboardPage dashboard = new DashboardPage(driver);
-        LogoutPopupPage logout = new LogoutPopupPage(driver);
+        DashboardPage dashboard = new DashboardPage(getDriver());
+        LogoutPopupPage logout = new LogoutPopupPage(getDriver());
 
         dashboard.clickOnLogoutTab();
         logout.clickCancelBtn();
@@ -47,9 +47,9 @@ public class TS018LogoutFunctionalityTests extends Base {
 
     @Test(priority = 3)
     public void TS018_TC004_1_Logout_Confirmation_Popup_Cancel_and_Logout_Using_Tab_and_Enter_Buttons()  {
-        DashboardPage dashboard = new DashboardPage(driver);
-        LogoutPopupPage logout = new LogoutPopupPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
+        DashboardPage dashboard = new DashboardPage(getDriver());
+        LogoutPopupPage logout = new LogoutPopupPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
 
         dashboard.clickOnLogoutTab();
         logout.pressEnter();

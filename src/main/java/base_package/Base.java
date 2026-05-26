@@ -34,15 +34,19 @@ import java.time.Duration;
 
 
 public class Base {
-    protected static WebDriver driver;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
+    protected WebDriver getDriver() {
+        return driver.get();
+    }
 
     @BeforeMethod
     @Parameters("browser")
     public void setUp(String browser) {
-        driver = createDriver(browser);
-        driver.manage().window().setSize(new Dimension(1920, 1080));
-        driver.get("https://dev.tms.maakretransport.com.au/");
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+        driver.set(createDriver(browser));
+        getDriver().manage().window().setSize(new Dimension(1920, 1080));
+        getDriver().get("https://dev.tms.maakretransport.com.au/");
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
     }
 
     private WebDriver createDriver(String browser) {
@@ -52,7 +56,7 @@ public class Base {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless");
                 chromeOptions.addArguments("--no-sandbox");
-                chromeOptions.addArguments("--disable-dev-shm-usage");
+                chromeOptions.addArguments("--disable-dev-shm-usage");cd b
                 chromeOptions.addArguments("--disable-gpu");
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 return new ChromeDriver(chromeOptions);
@@ -93,7 +97,8 @@ public class Base {
     @AfterMethod
     public void tearDown()  {
 
-            driver.quit();
+        getDriver().quit();
+        driver.remove();
 
     }
 }

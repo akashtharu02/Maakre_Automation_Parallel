@@ -13,17 +13,17 @@ public class TS008ViewConsignmentFunctionalityTests extends Base {
 
     @BeforeMethod
     public void preprocess()  {
-        TS001SignInFunctionalityTests.TS001_TC002_Valid_Email_and_Password_with_Password_Masked();
+        new LoginHelper(getDriver()).login();
 
     }
 
     @Test(priority = 1)
     public void TS008_TC003_Create_Consignment_Successfully_with_Valid_Info() {
 
-        DashboardPage dashboard = new DashboardPage(driver);
-        ViewConsignmentsPage consignmentListing = new ViewConsignmentsPage(driver);
-        ConsignmentFormPage consignmentForm = new ConsignmentFormPage(driver);
-        Toast_URL_Page popup = new Toast_URL_Page(driver);
+        DashboardPage dashboard = new DashboardPage(getDriver());
+        ViewConsignmentsPage consignmentListing = new ViewConsignmentsPage(getDriver());
+        ConsignmentFormPage consignmentForm = new ConsignmentFormPage(getDriver());
+        Toast_URL_Page popup = new Toast_URL_Page(getDriver());
 
         dashboard.waitForDashboardToLoad();
         dashboard.clickConsignmentsDropdown();
